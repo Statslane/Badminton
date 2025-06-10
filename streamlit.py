@@ -23,7 +23,7 @@ if uploaded_file:
 
 
     # Load YOLOv8 model
-    model = YOLO('best.pt').to('cuda')
+    model = YOLO('best.pt')
 
     # Open input video
     cap = cv2.VideoCapture(temp_input_path)
