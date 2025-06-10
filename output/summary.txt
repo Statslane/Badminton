@@ -1,0 +1,6 @@
+Smash Shot: 548
+Clear shot: 222
+Drop Shot: 918
+Lift shot: 61
+Drive shot: 52
+Serve: 3
