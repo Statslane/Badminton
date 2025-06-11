@@ -5,8 +5,10 @@ import os
 from ultralytics import YOLO
 from collections import defaultdict
 from pathlib import Path
-
 st.set_page_config(page_title="Badminton Shot Detector", layout="wide")
+st.sidebar.image("logos/logo.png", width=150)
+st.sidebar.title("Home")
+# st.image("logos/logo.png", width=150)
 st.title("🏸 Badminton Shot Detection")
 
 # Upload video
