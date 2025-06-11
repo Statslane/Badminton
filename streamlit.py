@@ -7,7 +7,7 @@ from collections import defaultdict
 from pathlib import Path
 
 st.set_page_config(page_title="Badminton Shot Detector", layout="wide")
-st.title("🏸 Badminton Shot Detection using YOLOv8")
+st.title("🏸 Badminton Shot Detection")
 
 # Upload video
 uploaded_file = st.file_uploader("Upload a video file", type=["mp4", "mov", "avi"])
@@ -77,9 +77,29 @@ if uploaded_file:
     # Display summary in grid
     st.subheader("📊 Shot Summary")
     cols = st.columns(3)
+    # for i, (cls, count) in enumerate(class_counts.items()):
+    #     with cols[i % 3]:
+    #         st.metric(label=cls, value=int(count/3))
+
+
     for i, (cls, count) in enumerate(class_counts.items()):
         with cols[i % 3]:
-            st.metric(label=cls, value=int(count/3))
+            st.markdown(
+                f"""
+                <div style="
+                    border: 1px solid #ccc; 
+                    border-radius: 10px; 
+                    padding: 15px; 
+                    text-align: center;
+                    margin: 5px;
+                ">
+                    <h4 style="margin: 0;">{cls}</h4>
+                    <p style="font-size: 24px; font-weight: bold; margin: 0;">{int(count/3)}</p>
+                </div>
+                """,
+                unsafe_allow_html=True
+            )
+    
 
     # Download button
     with open(temp_output_path, 'rb') as f:
